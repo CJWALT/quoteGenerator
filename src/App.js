@@ -8,7 +8,6 @@ function App() {
 const { isLoading, refetch, data, error} = useQuery ('quoteData', fetchQuote)
 
 
-    console.log(data)
       
 
     async function fetchQuote (){
@@ -47,7 +46,7 @@ return (
         <div className='quote-author--center'> 
           <p className='quote-word'> {data.content} </p>
           <small className='quote-author'>
-              {data.author}
+              -{data.author}
           </small>
         </div>
         <button className='btn' onClick={getNewQuote}>New Quote</button>
