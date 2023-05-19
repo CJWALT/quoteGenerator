@@ -12,25 +12,46 @@
   width:70%; 
   margin: 0 auto;
 }
+body{ 
+
+  position:relative;
+}
+body::before{ 
+  content: ""; 
+  top:0; 
+  left:0; 
+  right:0; 
+  bottom:0;
+  position:absolute;
+  background-image:url('/public/img/quote-bg.png');
+  background-repeat: no-repeat;
+  opacity:.1;
+  background-size:23rem;
+  background-position: 11rem bottom;
+  z-index: -100;
+}
 
 .quote-wrap{ 
-  
   display:flex; 
   flex-direction: column;
   justify-content: center;
   height: 100vh;
   margin:0 3rem;
-  
-}
+ }
+
+  h4.quote-heading{
+    font-size:1.2rem; 
+    text-align:center; 
+    font-family:'mada', sans-serif;
+    font-weight:300;
+  }
 
 .quote-author--center{ 
-  
   text-align:center;
-  margin-bottom:.5rem;
+  margin:.5rem 0;
   padding:10px;
-  /* height:auto; */
-
   overflow: hidden;
+  width:100%;
 }
 p.quote-word{ 
   font-weight:500; 
@@ -39,7 +60,7 @@ p.quote-word{
   font-weight:300;
   /* line-height:.3rem; */
   letter-spacing: .1rem;
-  margin-bottom:.5rem;
+  margin-bottom:.7rem;
 }
 
 small.quote-author{ 
@@ -57,25 +78,89 @@ small.quote-author{
 
 .btn{ 
   border:none; 
-  background: linear-gradient(90deg, rgba(154,92,149,1) 18%, rgba(9,9,100,.3) 32%, rgba(248,0,255,1) 79%); 
+  background: linear-gradient(90deg, rgba(121,9,88,1) 22%, rgba(154,92,149,1) 48%, rgba(214,0,255,1) 78%);
   font-family: 'mada', sans-serif;
   font-weight:500;
   font-size:1rem;
   color:white;
 
-  padding:.5rem ; 
+  padding:.2rem .5rem; 
   border-radius:.3rem;
-  width:30vw;
+  /* width:25vw; */
   align-self:center;
-  cursor:pointer;
+  cursor: pointer;
+  margin-top:.7rem;
+  z-index:20;
+}
+small.footer{ 
+  bottom:0;
+  position:fixed;
+  
+  /* border:1px solid red;  */
+  /* position:relative; */
+  /* width:100%; */
+}
+a{ 
+  font-size:.7rem; 
+  font-family: 'mada', sans-serif;
+  color:navy; 
+  text-decoration: none;;
+  font-size:.7rem; 
+  font-family: 'poppins', sans-serif;
+  font-weight:400;
+  
+}
+.loading{
+  border:1px solid red; 
+  height:100vh; 
+  display:flex; 
+  flex-direction: column;
+  background:rgba(200, 0, 0, .5);
+  justify-content: center;
+  align-self:center;
+}
+
+.loading p{ 
+  font-size:4rem; 
+  font-weight:700; 
+  font-family: 'mada', sans-serif;
+  color:#ff32aa; 
+  animation: loadingAnime .3s infinite;
+  transition: all ease-in;
+}
+
+@keyframes loadingAnime{ 
+  0%{ 
+    transform: scale(.1);
+  }
+  50%{ 
+    tranform:scale(.4);
+  }
+  100%{ 
+    transform: scale(.8);
+  }
 }
 
 
 
 
 
-@media screen and (min-width:720px){ 
+@media screen and (max-width:720px){ 
+  
   .container{ 
-    width:90%;
+    width:95%;
+  }
+  .quote-wrap{ 
+    margin:0 1rem;
+  }
+  h4.quote-heading{ 
+    font-size:.9rem;
+  }
+  p.quote-word{ 
+    font-size:.7rem;
+  }
+  small.quote-author{ 
+    font-size:.6rem;
+
   }
 }
