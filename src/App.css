@@ -31,6 +31,22 @@ body::before{
   z-index: -100;
 }
 
+.light-dark{ 
+  /* border:1px solid red; */
+  display:flex; 
+  gap:.5rem;
+  font-size:1.4rem;
+  flex-wrap: wrap;
+  justify-content: end;
+  width:10vw;
+  float:right;
+  cursor:pointer;
+  padding-top:.4rem;
+  
+}
+/* .dark-icon{ 
+  display:none;
+} */
 .quote-wrap{ 
   display:flex; 
   flex-direction: column;
@@ -61,17 +77,32 @@ p.quote-word{
   /* line-height:.3rem; */
   letter-spacing: .1rem;
   margin-bottom:.7rem;
+  /* transition:all .3s ease-in-out; */
+  animation:wordAnime ease-in-out;
+  animation-duration: .4s;
+}
+
+@keyframes wordAnime{ 
+  0%{ 
+    opacity:0; 
+  }
+  50%{ 
+    opacity:.4; 
+  }
+  100%{ 
+    opacity:1
+  }
 }
 
 small.quote-author{ 
-  background:rgba(233, 0, 0.3, .1);
+    background:rgba(233, 0, 0.3, .1);
   color:navy; 
   font-family: 'poppins', sans-serif;
   font-style: italic;
   font-weight:700;
   font-size:.7rem;
   padding:.3rem; 
-  border-radius: .3rem;
+  border-radius: .9rem;
   align-self:right;
   float:right;
 }
@@ -81,11 +112,10 @@ small.quote-author{
   background: linear-gradient(90deg, rgba(121,9,88,1) 22%, rgba(154,92,149,1) 48%, rgba(214,0,255,1) 78%);
   font-family: 'mada', sans-serif;
   font-weight:500;
-  font-size:1rem;
+  font-size:.7rem;
   color:white;
-
   padding:.2rem .5rem; 
-  border-radius:.3rem;
+  border-radius:.6rem;
   /* width:25vw; */
   align-self:center;
   cursor: pointer;
@@ -95,10 +125,7 @@ small.quote-author{
 small.footer{ 
   bottom:0;
   position:fixed;
-  
-  /* border:1px solid red;  */
-  /* position:relative; */
-  /* width:100%; */
+ 
 }
 a{ 
   font-size:.7rem; 
@@ -111,7 +138,6 @@ a{
   
 }
 .loading{
-  border:1px solid red; 
   height:100vh; 
   display:flex; 
   flex-direction: column;
@@ -142,7 +168,27 @@ a{
 }
 
 
+/* //darkmode */
 
+
+.body-dark{
+  background:rgb(84, 82, 82);
+}
+
+.dark-txt{ 
+  color:rgb(192, 185, 185);  ;
+}
+
+small.author-txt{ 
+  color:rgb(210, 207, 207);
+  background:rgb(108, 107, 107);
+  /* font-size:20rem; */
+}
+
+.dark-btn{ 
+  background: linear-gradient(90deg, rgba(13,13,13,1) 27%, rgba(107,99,105,1) 62%, rgba(152,144,153,1) 88%);
+  color:#fff;
+}
 
 
 @media screen and (max-width:720px){ 
