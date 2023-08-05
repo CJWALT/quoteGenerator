@@ -167,6 +167,41 @@ a{
   }
 }
 
+.modal-btn{ 
+  
+  /* width:6.7rem; */
+  max-width: 2.3rem;
+  padding:.3rem;
+}
+
+.modal-wrap{ 
+  display:none;
+  padding:.4rem;
+  /* display:flex;  */
+  flex-direction: column;
+  gap:.3rem;
+  background-color:#ddd9dd;
+  margin-bottom:.4rem;
+  border-radius:.3rem;
+  
+}
+
+.show-modal-wrap{ 
+  display:flex;
+}
+
+.modal-title{ 
+  font-size:.8rem; 
+  font-weight:600;
+  font-family:'Poppins', sans-serif;
+}
+
+.modal-icon-wrp{
+  display:flex; 
+  gap:.5rem;
+  padding-bottom:.4rem; 
+
+}
 
 /* //darkmode */
 
@@ -185,11 +220,20 @@ small.author-txt{
   /* font-size:20rem; */
 }
 
+
+.light-icon{ 
+  border:1px solid red
+}
+
 .dark-btn{ 
   background: linear-gradient(90deg, rgba(13,13,13,1) 27%, rgba(107,99,105,1) 62%, rgba(152,144,153,1) 88%);
   color:#fff;
 }
 
+.share-btn{ 
+  cursor:pointer;
+  border:1px solid red;
+}
 
 @media screen and (max-width:720px){ 
   

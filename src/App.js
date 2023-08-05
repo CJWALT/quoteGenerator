@@ -6,8 +6,8 @@ import './App.css';
 
 function App() {
 
-  const [lightDark, setLightDark] = useState(true)
- 
+const [lightDark, setLightDark] = useState(true)
+const [showModal, setShowModal] = useState(true)
 const { isLoading, refetch, data, error} = useQuery ('quoteData', fetchQuote)
 
 
@@ -22,7 +22,6 @@ const { isLoading, refetch, data, error} = useQuery ('quoteData', fetchQuote)
 
     }
 
-
     const getNewQuote = (e) =>{ 
       e.preventDefault()
 
@@ -33,6 +32,24 @@ const { isLoading, refetch, data, error} = useQuery ('quoteData', fetchQuote)
     const toggleDark = () =>{ 
         setLightDark (!lightDark)
     }
+
+
+    const toggleModal = () =>{ 
+      setShowModal(!showModal)
+    }
+
+    const handleWhatsappShare = () =>{
+        if(navigator.share){
+          navigator.share({ 
+            title:data.tile, 
+            text:data,
+          })
+          .then(() => alert('contentshared successfull'))
+          .catch((error) => console.error('error sharing content', error))
+        }
+
+    }
+
 
     if(!lightDark){ 
       document.body.classList.add('body-dark');
@@ -61,6 +78,11 @@ return (
       {lightDark ? <ion-icon name="sunny-outline" className="light-icon" onClick={toggleDark}></ion-icon> :  <ion-icon name="contrast-outline" onClick={toggleDark} ></ion-icon> }
     </div>
       <div className='quote-wrap'> 
+        <div className='modal-btn'>
+            <div className={showModal ? 'modal-wrap' : 'modal-wrap show-modal-wrap'}>
+              <ion-icon name="share-outline" onClick={handleWhatsappShare} className='share-btn'></ion-icon>
+            </div>
+             </div>
           <h4 className={lightDark ? 'quote-heading': 'quote-heading dark-txt'}>click to see random inspiration/love quote</h4>
         <div className='quote-author--center'> 
           <p className={lightDark ? 'quote-word' : 'quote-word dark-txt'}> {data.content} </p>
