@@ -197,7 +197,8 @@ small.author-txt{
 
 .share-btn{ 
   cursor:pointer;
-  border:1px solid red;
+  
+  width:1.3rem;
 }
 
 @media screen and (max-width:720px){ 

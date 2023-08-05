@@ -34,15 +34,16 @@ const { isLoading, refetch, data, error} = useQuery ('quoteData', fetchQuote)
     }
 
 
-    const toggleModal = () =>{ 
-      setShowModal(!showModal)
-    }
+    // const toggleModal = () =>{ 
+    //   setShowModal(!showModal)
+    // }
 
     const handleWhatsappShare = () =>{
-        if(navigator.share){
+        console.log(data)  
+      if(navigator.share){
           navigator.share({ 
-            title:data.tile, 
-            text:data,
+            title:data.title, 
+            text:data.content,
           })
           .then(() => alert('contentshared successfull'))
           .catch((error) => console.error('error sharing content', error))
@@ -78,8 +79,8 @@ return (
       {lightDark ? <ion-icon name="sunny-outline" className="light-icon" onClick={toggleDark}></ion-icon> :  <ion-icon name="contrast-outline" onClick={toggleDark} ></ion-icon> }
     </div>
       <div className='quote-wrap'> 
-        <div>
-              <ion-icon name="share-outline" onClick={handleWhatsappShare} className='share-btn'></ion-icon>
+        <div className='share-btn'>
+              <ion-icon name="share-outline" onClick={handleWhatsappShare} ></ion-icon>
             
         </div>
           <h4 className={lightDark ? 'quote-heading': 'quote-heading dark-txt'}>click to see random inspiration/love quote</h4>
