@@ -39,7 +39,7 @@ const { isLoading, refetch, data, error} = useQuery ('quoteData', fetchQuote)
     // }
 
     const handleWhatsappShare = () =>{
-        const url ='https://https://quotegenvv.vercel.app/'
+        const url ='https://quotegenvv.vercel.app/'
       if(navigator.share){
           navigator.share({ 
             title:data.title, 
