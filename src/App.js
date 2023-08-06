@@ -39,11 +39,13 @@ const { isLoading, refetch, data, error} = useQuery ('quoteData', fetchQuote)
     // }
 
     const handleWhatsappShare = () =>{
-        console.log(data)  
+        const url ='https://https://quotegenvv.vercel.app/'
       if(navigator.share){
           navigator.share({ 
             title:data.title, 
-            text:data.content,
+            text:`${data.content} read more quotes`,
+            url: url
+          
           })
           .then(() => alert('contentshared successfull'))
           .catch((error) => console.error('error sharing content', error))
